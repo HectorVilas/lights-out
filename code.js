@@ -60,11 +60,11 @@ function toggleLights(x,y){
 }
 
 function randomizeLights(){
-  for(i = 0; i < 25; i++){
+  for(i = 0; i < 30; i++){
     setTimeout( () => {
       toggleLights(Math.floor(Math.random()*boardSize),
       Math.floor(Math.random()*boardSize));
-    }, 75 * (i+1));
+    }, 75 * (i*(i/20)));
   }
 }
 
