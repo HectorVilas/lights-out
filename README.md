@@ -17,7 +17,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ the tiles must be generated with `JS`
 - - ✅ every tile in the board must have an unique ID
 - ✅ add initial style with `CSS`
-- - ❌ add animations for on/off state
+- - ✅ add animations for on/off state
 - ✅ The next buttons must be present:
 - - ✅ new game
 - - ✅ restart game
@@ -51,6 +51,11 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ❌ randomize the walls and furniture
 - ❌ different grid sizes
 - ❌ undo button
+- ❌ electrical panel for challenges
+- - ❌ the thermomagnetic switch has X amps
+- - ❌ every single light on adds to the electric charge
+- - ❌ if the max amp is reached, it's game over
+- ❌ game mode: match lights on screen instead of turning off everything
 
 ## update 1
 The page has been made as placeholder, but now I can start adding some `JS` code. Still no design in mind, starting without a drawn design was a mistake.
@@ -60,3 +65,12 @@ Now the tiles are generated, the grid size may be customized. The tiles now chan
 
 ## update 3
 Now the adjacent tiles will turn on/off the lights. There's some code repetition, will fix later creating a function. Right now the game can be playable, but won't announce when you win and you must toggle some lights manually before starting.
+
+Note: Even though the code works, it breaks if the grid is bigger tan 10. That's because I used a generated ID containing the _X_ and _Y_ coordinates and got those numbers by index. No problem with _x9y5_, `tile.id[1]` and `tile.id[3]` have the numbers I need, but what happens with _x10y5_? Now I get "y" for _Y_ instead of 5. This can be fixed with a little array method magic, but making some custom attributes for _X_ and _Y_ would be better. Time to adapt the code and take on this new challenge.
+
+## update 4
+The method to toggle adjacent light has been changed for a better one with custom attributes. Now any grid size will work. The solution was easier than i thought.
+
+The lights now have a little transition when the lights are roggled.
+
+As a little extra, now the "Random level" button randomizes the tiles. To prevent softlock, once it chooses a random tile, it also toggles the adyacent ones.

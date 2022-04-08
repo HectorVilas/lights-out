@@ -82,6 +82,7 @@ a:hover {
   flex: 1 1 0;
   background-color: white;
   box-shadow: inset 0 0 30px 20px black;
+  transition: 150ms;
 }
 
 .tile:hover {
@@ -92,9 +93,12 @@ a:hover {
   /* background-color: white; */
   border-color: yellow;
   box-shadow: inset 0 0 5px yellow;
+  transition: 300ms;
 }
 
-
+.randomLevel {
+  background-color: yellow;
+}
 
 
 
