@@ -12,19 +12,23 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 **Start:**
 - ✅ describe the project and write a roadmap
 - ❌ "how to play" button that show/hide the game rules
-- ❌ shameless link to my Github profile
-- ❌ draw a board in the center of the page
+- ✅ shameless link to my Github profile
+- ✅ draw a board in the center of the page
 - - ❌ the blocks must be generated with `JS`
 - - ❌ every block in the board must have an unique ID
-- ❌ add style with `CSS`
+- ✅ add initial style with `CSS`
 - - ❌ add animations for on/off state
-- ❌ The next buttons must be present:
-- - ❌ new game
-- - ❌ restart game
-- - ❌ level select
-- - ❌ random level
+- ✅ The next buttons must be present:
+- - ✅ new game
+- - ✅ restart game
+- - ✅ level select
+- - ✅ random level
+- - ❌ ask for confirmation before reseting the game
 - ❌ player score
+- - ❌ must update once a block is clicked
+- - ❌ lower score (less moves) is better
 - ❌ which level is being played
+- ❌ board size must always be 1:1
 
 **Game logic:**
 - ❌ make the blocks clickable
@@ -42,7 +46,11 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ❌ ~50 levels will be playable as a challenge
 - - ❌ once a level is won, the next will be playable
 
-**Other ideas:**
+**Other ideas, not promised:**
 - ❌ draw rooms behind the blocks
 - - ❌ randomize the walls and furniture
 - ❌ different grid sizes
+- ❌ undo button
+
+## update 1
+The page has been made as placeholder, but now I can start adding some `JS` code. Still no design in mind, starting without a drawn design was a mistake.

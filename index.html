@@ -4,9 +4,157 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+  <link rel="shortcut icon" href="#"> <!--prevent error from live-->
+  <script src="./code.js"></script>
   <title>Lights Out!</title>
 </head>
 <body>
-  
+<div class="content">
+    <header>
+      <p class="how-to-play">(?)</p>
+        <h1>Lights Out!</h1>
+        <p>by <a href="https://github.com/HectorVilas" target="_blank">HectorVilas</a></p>
+    </header>
+
+    <div class="top">
+      <div class="score">SCORE</div>
+      <div class="level">LEVEL</div>
+    </div>
+
+    <div class="middle">
+      <div class="board">
+        <div class="row 1">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row 2">
+          <div class="tile 1"></div>
+          <div class="tile 2 active"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row 3">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7 active"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row4">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row 5">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5 active"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row 6">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row 7">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row 8">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row 9">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+        <div class="row 10">
+          <div class="tile 1"></div>
+          <div class="tile 2"></div>
+          <div class="tile 3"></div>
+          <div class="tile 4"></div>
+          <div class="tile 5"></div>
+          <div class="tile 6"></div>
+          <div class="tile 7"></div>
+          <div class="tile 8"></div>
+          <div class="tile 9"></div>
+          <div class="tile 10"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <button class="newGame">New game</button>
+      <button class="restartGame">Restart game</button>
+      <button class="levelSelect">Level select</button>
+      <button class="randomLevel">Random level</button>
+    </div>
+    
+  </div>
 </body>
 </html>
