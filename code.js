@@ -1,10 +1,11 @@
 const board = document.querySelector(".board");
 let boardSize = 10;
 const btnRandom = document.querySelector(".randomLevel");
+btnRandom.addEventListener("click", () => randomizeLights());
 
 drawBoard()
 
-btnRandom.addEventListener("click", () => randomizeLights());
+
 
 //adding actions to each tile
 const tiles = document.querySelectorAll(".tile");
@@ -55,11 +56,18 @@ function toggleLights(x,y){
       t.classList.toggle("active");
     }
   });
+  playSound()
 }
 
 function randomizeLights(){
   for(i = 0; i < 50; i++){
-    let as = 0;
-    toggleLights(Math.floor(Math.random()*boardSize),Math.floor(Math.random()*boardSize))
+      toggleLights(Math.floor(Math.random()*boardSize),
+    Math.floor(Math.random()*boardSize));
   }
+}
+
+function playSound(){
+  const soundSwitch = document.querySelector("#switchSound");
+  soundSwitch.currentTime = 0;
+  soundSwitch.play();
 }
