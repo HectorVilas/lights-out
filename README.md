@@ -14,8 +14,8 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - ❌ "how to play" button that show/hide the game rules
 - ✅ shameless link to my Github profile
 - ✅ draw a board in the center of the page
-- - ❌ the blocks must be generated with `JS`
-- - ❌ every block in the board must have an unique ID
+- - ❌ the tiles must be generated with `JS`
+- - ❌ every tile in the board must have an unique ID
 - ✅ add initial style with `CSS`
 - - ❌ add animations for on/off state
 - ✅ The next buttons must be present:
@@ -25,29 +25,29 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ random level
 - - ❌ ask for confirmation before reseting the game
 - ❌ player score
-- - ❌ must update once a block is clicked
+- - ❌ must update once a tile is clicked
 - - ❌ lower score (less moves) is better
 - ❌ which level is being played
 - ❌ board size must always be 1:1
 
 **Game logic:**
-- ❌ make the blocks clickable
-- - ❌ clicked block must change boolean state
-- - ❌ the adjacent blocks must change state too
+- ❌ make the tiles clickable
+- - ❌ clicked tile must change boolean state
+- - ❌ the adjacent tiles must change state too
 - ❌ if all lights are off, player wins
 - - ❌ a message will show announcing it
 - - ❌ next level must be loaded or new random level will be generated
 
 **Game modes:**
 - ❌ random level
-- - ❌ random blocks will be toggled _X_ number of times
-- - ❌ adjacent blocks will change state too, to not soft lock the game
+- - ❌ random tiles will be toggled _X_ number of times
+- - ❌ adjacent tiles will change state too, to not soft lock the game
 - ❌ premade levels
 - - ❌ ~50 levels will be playable as a challenge
 - - ❌ once a level is won, the next will be playable
 
 **Other ideas, not promised:**
-- ❌ draw rooms behind the blocks
+- ❌ draw rooms behind the tiles
 - - ❌ randomize the walls and furniture
 - ❌ different grid sizes
 - ❌ undo button
