@@ -14,8 +14,8 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - ❌ "how to play" button that show/hide the game rules
 - ✅ shameless link to my Github profile
 - ✅ draw a board in the center of the page
-- - ❌ the tiles must be generated with `JS`
-- - ❌ every tile in the board must have an unique ID
+- - ✅ the tiles must be generated with `JS`
+- - ✅ every tile in the board must have an unique ID
 - ✅ add initial style with `CSS`
 - - ❌ add animations for on/off state
 - ✅ The next buttons must be present:
@@ -31,9 +31,9 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - ❌ board size must always be 1:1
 
 **Game logic:**
-- ❌ make the tiles clickable
-- - ❌ clicked tile must change boolean state
-- - ❌ the adjacent tiles must change state too
+- ✅ make the tiles clickable
+- - ✅ clicked tile must change ~~boolean~~ state
+- - ✅ the adjacent tiles must change state too
 - ❌ if all lights are off, player wins
 - - ❌ a message will show announcing it
 - - ❌ next level must be loaded or new random level will be generated
@@ -54,3 +54,9 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 
 ## update 1
 The page has been made as placeholder, but now I can start adding some `JS` code. Still no design in mind, starting without a drawn design was a mistake.
+
+## update 2
+Now the tiles are generated, the grid size may be customized. The tiles now change state to "turn on/off the light". The next step is to make the adjacent tiles toggle state.
+
+## update 3
+Now the adjacent tiles will turn on/off the lights. There's some code repetition, will fix later creating a function. Right now the game can be playable, but won't announce when you win and you must toggle some lights manually before starting.
