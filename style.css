@@ -116,14 +116,15 @@ header p {
   transition: 300ms;
 }
 
-/* buttons */
 .randomLevel {
   background-color: yellow;
 }
 
-
-
 .bottom {
+  flex-direction: column;
+}
+
+.gameModeOptions{
   flex-direction: column;
 }
 
