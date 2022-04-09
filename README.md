@@ -93,3 +93,8 @@ now is:
 const tiles = targets(".tile");
 ```
 It made the code more "clean" to the view, but maybe it's unnecesary. If somebody want to understand the code, they first need to find the `targets` function declaration, so it's not very friendly. May restore later.
+
+Note: I just restored it to the original text. I must get used to make my code friendly for other programmers.
+
+## update 7
+Every time the player clicks on a tile, the "moves" counter will add 1 to it. If the player starts a new game, it goes back to zero.
