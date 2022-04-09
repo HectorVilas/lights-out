@@ -1,14 +1,28 @@
-const board = document.querySelector(".board");
+const board = target(".board");
+
 let boardSize = 10;
-const btnRandom = document.querySelector(".randomLevel");
-btnRandom.addEventListener("click", () => randomizeLights());
+
+//buttons and actions
+const btnRandom = target(".randomLevel");
+btnRandom.addEventListener("click", () =>{
+  toggleButtons()
+  randomizeLights();
+});
+
+const btnNewGame = target(".newGame");
+btnNewGame.addEventListener("click", () => toggleButtons());
+
+const btnCancel = target(".cancel");
+btnCancel.addEventListener("click", () => toggleButtons());
+
+//////////
 
 drawBoard()
 
 
 
 //adding actions to each tile
-const tiles = document.querySelectorAll(".tile");
+const tiles = targets(".tile");
 tiles.forEach(tile => {
   tile.addEventListener("click", () => {
     toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
@@ -33,22 +47,22 @@ function drawBoard(){
 }
 
 function toggleLights(x,y){
-    let tileCenter = document.querySelector(`[x="${x}"][y="${y}"]`);
+    let tileCenter = target(`[x="${x}"][y="${y}"]`);
   let tileN = undefined;
   if(y-1 >= 0 && y-1 <= boardSize-1){
-    tileN = document.querySelector(`[x="${x}"][y="${y-1}"]`);
+    tileN = target(`[x="${x}"][y="${y-1}"]`);
   };
   let tileS = undefined;
   if(parseInt(y)+1 >= 0 && parseInt(y)+1 <= boardSize-1){
-    tileS = document.querySelector(`[x="${x}"][y="${parseInt(y)+1}"]`);
+    tileS = target(`[x="${x}"][y="${parseInt(y)+1}"]`);
   };
   let tileE = undefined;
   if(parseInt(x)+1 >= 0 && parseInt(x)+1 <= boardSize-1){
-    tileE = document.querySelector(`[x="${parseInt(x)+1}"][y="${y}"]`);
+    tileE = target(`[x="${parseInt(x)+1}"][y="${y}"]`);
   }
   let tileW = undefined;
   if(x-1 >= 0 && x-1 <= boardSize-1){
-    tileW = document.querySelector(`[x="${x-1}"][y="${y}"]`);
+    tileW = target(`[x="${x-1}"][y="${y}"]`);
   }
 
   [tileCenter, tileN, tileS, tileE, tileW].forEach(t => {
@@ -69,7 +83,24 @@ function randomizeLights(){
 }
 
 function playSound(){
-  const soundSwitch = document.querySelector("#switchSound");
+  const soundSwitch = target("#switchSound");
   soundSwitch.currentTime = 0;
   soundSwitch.play();
+}
+
+function toggleButtons(){
+  const mainButtons = target(".mainButtons");
+const hiddenNewGame = target(".gameMode");
+  mainButtons.classList.toggle("hidden");
+  hiddenNewGame.classList.toggle("hidden");
+}
+
+//functions to shrink code on screen
+
+function target(str){
+  return document.querySelector(str);
+}
+
+function targets(str){
+  return document.querySelectorAll(str);
 }
