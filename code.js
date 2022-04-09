@@ -16,6 +16,8 @@ btnNewGame.addEventListener("click", () => toggleButtons());
 const btnCancel = document.querySelector(".cancel");
 btnCancel.addEventListener("click", () => toggleButtons());
 
+const btnRestart = document.querySelector(".restartGame");
+btnRestart.addEventListener("click", () => restartGame());
 //////////
 
 drawBoard()
@@ -76,11 +78,11 @@ function toggleLights(x,y){
 }
 
 function randomizeLights(){
-  movesCount("reset");
   for(i = 0; i < 30; i++){
     setTimeout( () => {
       toggleLights(Math.floor(Math.random()*boardSize),
       Math.floor(Math.random()*boardSize));
+      movesCount("reset");
     }, 75 * (i*(i/20)));
   }
 }
@@ -108,3 +110,11 @@ function movesCount(action){
     move.innerText = moves;
   }
 }
+
+function restartGame(){
+  tiles.forEach(tile => {
+    tile.classList.remove("active");
+  });
+  movesCount("reset");
+  toggleButtons()
+};

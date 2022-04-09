@@ -97,4 +97,4 @@ It made the code more "clean" to the view, but maybe it's unnecesary. If somebod
 Note: I just restored it to the original text. I must get used to make my code friendly for other programmers.
 
 ## update 7
-Every time the player clicks on a tile, the "moves" counter will add 1 to it. If the player starts a new game, it goes back to zero.
+Every time the player clicks on a tile, the "moves" counter will add 1 to it. If the player starts a new game, it goes back to zero. Buttons without function will have a purple color for now.
