@@ -1,4 +1,5 @@
 const board = target(".board");
+let moves = 0;
 
 let boardSize = 10;
 
@@ -90,7 +91,7 @@ function playSound(){
 
 function toggleButtons(){
   const mainButtons = target(".mainButtons");
-const hiddenNewGame = target(".gameMode");
+  const hiddenNewGame = target(".gameModeOptions");
   mainButtons.classList.toggle("hidden");
   hiddenNewGame.classList.toggle("hidden");
 }

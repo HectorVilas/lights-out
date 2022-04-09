@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  font-family: aldrich, 'Courier New', Courier, monospace;
   display: flex;
   justify-content: center;
   background-color: darkslateblue;
@@ -43,7 +44,6 @@ header {
 header h1 {
   flex: 4 1 0;
   text-align: center;
-  font-family: aldrich, 'Courier New', Courier, monospace;
   font-size: 60px;
   text-shadow: 0 0 5px black;
   color: rgb(220, 220, 220);
@@ -62,6 +62,33 @@ header p {
 
 /* - - - play area - - - */
 
+/* - - - top - - - */
+
+.moves,
+.gameMode,
+.level {
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.displayTitle {
+  color: white;
+  text-shadow: 0 0 5px black;
+  margin: 5px;
+}
+
+.displayMoves,
+.displayGamemode,
+.displayLevel {
+  color: white;
+  text-shadow: 0 0 5px black;
+  margin: 0px;
+}
+
+/* - - - board - - - */
 
 .board {
   flex-direction: column;
@@ -108,7 +135,6 @@ footer {
   margin-top: auto; 
   padding: 0;
   color: white;
-  font-family: aldrich, 'Courier New', Courier, monospace;
 }
 
 
