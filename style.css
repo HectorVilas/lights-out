@@ -1,3 +1,7 @@
+html {
+  height: 100vh;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -10,15 +14,25 @@ div {
 }
 
 button {
-  flex: 1 1 auto;
-  margin: 20px;
+  flex: 1 1 0;
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: cadetblue;
+}
+a:hover {
+  color: white;
+  text-shadow: 0 0 5px yellow;
 }
 
 .content {
-  display: flex;
   flex-direction: column;
   max-width: 750px;
   min-width: 550px;
+  height: 98vh;
+  gap: 10px;
 }
 
 /* - - - header - - - */
@@ -38,31 +52,16 @@ header h1 {
 header h1:hover{
   text-shadow: 0 0 5px yellow;
 }
-header p,
-.how-to-play {
+header p {
   flex: 1 1 0;
   font-size: 15px;
   color: rgb(220, 220, 220);
   text-align: end;
   padding-top: 20px; /*aligns with the title baseline*/
 }
-.how-to-play{
-  text-align: start;
-}
-a {
-  text-decoration: none;
-  color: cadetblue;
-}
-a:hover {
-  color: white;
-  text-shadow: 0 0 5px yellow;
-}
 
 /* - - - play area - - - */
 
-.middle {
-  justify-content: center;
-}
 
 .board {
   flex-direction: column;
@@ -90,10 +89,27 @@ a:hover {
   transition: 300ms;
 }
 
+/* buttons */
 .randomLevel {
   background-color: yellow;
 }
 
+
+
+.bottom {
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  margin-top: auto; 
+  padding: 0;
+  color: white;
+  font-family: aldrich, 'Courier New', Courier, monospace;
+}
 
 
 /*testing*/
