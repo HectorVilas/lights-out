@@ -39,9 +39,9 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ❌ next level must be loaded or new random level will be generated
 
 **Game modes:**
-- ❌ random level
-- - ❌ random tiles will be toggled _X_ number of times
-- - ❌ adjacent tiles will change state too, to not soft lock the game
+- ✅ random level
+- - ✅ random tiles will be toggled _X_ number of times
+- - ✅ adjacent tiles will change state too, to not soft lock the game
 - ❌ premade levels
 - - ❌ ~50 levels will be playable as a challenge
 - - ❌ once a level is won, the next will be playable
@@ -74,3 +74,22 @@ The method to toggle adjacent light has been changed for a better one with custo
 The lights now have a little transition when the lights are roggled.
 
 As a little extra, now the "Random level" button randomizes the tiles. To prevent softlock, once it chooses a random tile, it also toggles the adyacent ones.
+
+## update 5
+Added a "click" sound. The randomization now have a little delay with deceleration for an animated look. Credits for the sound's author added to the page.
+
+The board now can change size depending on the window size.
+
+## update 6
+The page now tries to stay in the visible area, to prevent the need of vertical scrolling. The buttons have been grouped so they can be hidden or shown when necessary (click on _New game_ and then you see the game modes).
+
+Just for the sake of experimenting, I made a super basic function trying to shrink the code. For example:
+
+```javascript
+const tiles = document.querySelectorAll(".tile");
+```
+now is:
+```javascript
+const tiles = targets(".tile");
+```
+It made the code more "clean" to the view, but maybe it's unnecesary. If somebody want to understand the code, they first need to find the `targets` function declaration, so it's not very friendly. May restore later.
