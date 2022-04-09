@@ -13,7 +13,7 @@
 <body>
 <div class="content">
     <header>
-      <p class="how-to-play">(?)</p>
+      <p class="empty"></p>
         <h1>Lights Out!</h1>
         <p>by <a href="https://github.com/HectorVilas" target="_blank">HectorVilas</a></p>
     </header>
@@ -23,21 +23,26 @@
       <div class="level">LEVEL</div>
     </div>
 
-    <div class="middle">
-      <div class="board">
-        
-      </div>
+    <div class="board">
     </div>
 
     <div class="bottom">
-      <button class="newGame">New game</button>
-      <button class="restartGame">Restart game</button>
-      <button class="levelSelect">Level select</button>
-      <button class="randomLevel">Random level</button>
+      <div class="mainButtons">
+        <button class="newGame">New game</button>
+        <button class="howToPlay">How to play</button>
+      </div>
+      <div class="gameMode hidden">
+        <button class="restartGame">Restart game</button>
+        <button class="levelSelect">Level select</button>
+        <button class="randomLevel">Random level</button>
+        <button class="cancel">Cancel</button>
+      </div>
+
+      <footer>
+        <p>Light switch sound from <a href="https://freesound.org/people/kwahmah_02/sounds/244923/" target="_blank">freesound.org</a>.</p>
+      </footer>
     </div>
-    <footer>
-      <p>Light switch sound from <a href="https://freesound.org/people/kwahmah_02/sounds/244923/" target="_blank">freesound.org</a>.</p>
-    </footer>
+
   </div>
   <audio id="switchSound" src="./media/244923__kwahmah-02__light-switch.wav"></audio>
 </body>
