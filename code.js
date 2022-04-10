@@ -114,7 +114,7 @@ function restartGame(){
   });
   displayMoves("reset");
   toggleButtons();
-  gameOver = false;
+  gameOver = true;
 };
 
 function checkWinCondition(){
