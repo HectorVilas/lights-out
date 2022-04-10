@@ -122,27 +122,21 @@ function toggleMenu(show){
   const menuHowToPlay = document.querySelector(".divHowToPlay");
   const menuAbout = document.querySelector(".divAbout");
 
+  let items = [MenuMainButtons,MenuNewGame,menuHowToPlay,menuAbout];
+  let keep;
+  
   if(show == "main"){
-    MenuMainButtons.classList.remove("hidden");
-    [MenuNewGame,menuHowToPlay,menuAbout].forEach(menu =>{
-      menu.classList.add("hidden");
-    });
+    keep = MenuMainButtons;
   } else if(show == "modes"){
-    MenuNewGame.classList.remove("hidden");
-    [MenuMainButtons,menuHowToPlay,menuAbout].forEach(menu =>{
-      menu.classList.add("hidden");
-    });
+    keep = MenuNewGame;
   } else if(show == "how"){
-    menuHowToPlay.classList.remove("hidden");
-    [MenuMainButtons,MenuNewGame,menuAbout].forEach(menu =>{
-      menu.classList.add("hidden");
-    });
+    keep = menuHowToPlay;
   } else if(show == "about"){
-    menuAbout.classList.remove("hidden");
-    [MenuMainButtons,MenuNewGame,menuHowToPlay].forEach(menu =>{
-      menu.classList.add("hidden");
-    });
+    keep = menuAbout;
   }
+
+  items.forEach(item => item.classList.add("hidden"));
+  keep.classList.remove("hidden");
 }
 
 function restartGame(){
@@ -189,6 +183,7 @@ function displayGameMode(newMode){
   mode.innerText = newMode;
 }
 
-function displayLevel(){
-
+function displayLevel(num){
+  const levelDisplay = document.querySelector(".displayLevel");
+  levelDisplay.innerText = num;
 }
