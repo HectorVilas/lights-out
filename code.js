@@ -21,7 +21,7 @@ tiles.forEach(tile => {
 });
 
 //buttons and actions
-const btnRandom = document.querySelector(".randomLevel");
+const btnRandom = document.querySelector(".randomMode");
 btnRandom.addEventListener("click", () =>{
   toggleMenu("main")
   newGame("Random", 0);
@@ -41,14 +41,15 @@ btnAbout.addEventListener("click", () => toggleMenu("about"));
 
 //FUNCTIONS
 
-function newGame(newGameMode,level){
-  restartGame();
+function newGame(newGameMode,level, size){
+  clearBoard();
   gameOver = true;
   displayMoves("reset");
   displayGameMode(newGameMode);
   if(newGameMode == "Random"){
     randomizeLights();
     gameOver = false;
+    boardSize = 5;
   }
   displayLevel(level);
 }
@@ -131,7 +132,7 @@ function toggleMenu(show){
   keep.classList.remove("hidden");
 }
 
-function restartGame(){
+function clearBoard(){
   tiles.forEach(tile => {
     tile.classList.remove("active");
   });
@@ -177,4 +178,18 @@ function displayGameMode(newMode){
 function displayLevel(num){
   const levelDisplay = document.querySelector(".displayLevel");
   levelDisplay.innerText = num;
+}
+
+///////////////////// test area /////////////////////
+
+const levelsNormalMode = [
+    [[2,5],[1,8],[4,6]], //level 0
+    [[3,6],[5,2],[8,1],[8,6],[9,2],[5,5],[3,3],[4,4],[6,8],[3,1]] //level 1
+  ];
+function drawLevel(l){
+  clearBoard()
+  levelsNormalMode[l].forEach(t => {
+    let thisTile = document.querySelector(`[x="${t[0]}"][y="${t[1]}"]`);
+    thisTile.classList.toggle("active");
+  });
 }
