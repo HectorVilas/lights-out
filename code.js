@@ -24,19 +24,16 @@ tiles.forEach(tile => {
 const btnRandom = document.querySelector(".randomLevel");
 btnRandom.addEventListener("click", () =>{
   toggleMenu("main")
-  // randomizeLights();
-  // displayGameMode("Random");
   newGame("Random", 0);
 });
 const btnNewGame = document.querySelector(".newGame");
 btnNewGame.addEventListener("click", () => {
   toggleMenu("modes");
-  // newGame("Sandbox", 0);
 });
 const btnCancel = document.querySelectorAll(".cancel");
 btnCancel.forEach(btn => btn.addEventListener("click", () => toggleMenu("main")));
 const btnSandbox = document.querySelector(".sandboxMode");
-btnSandbox.addEventListener("click", () => newGame("sandbox", 0)/*restartGame()*/);
+btnSandbox.addEventListener("click", () => newGame("sandbox", 0));
 const btnHowToPlay = document.querySelector(".howToPlay");
 btnHowToPlay.addEventListener("click", () => toggleMenu("how"));
 const btnAbout = document.querySelector(".about");
@@ -46,12 +43,12 @@ btnAbout.addEventListener("click", () => toggleMenu("about"));
 
 function newGame(newGameMode,level){
   restartGame();
-  gameOver = false;
+  gameOver = true;
   displayMoves("reset");
   displayGameMode(newGameMode);
   if(newGameMode == "Random"){
     randomizeLights();
-    gameOver = true;
+    gameOver = false;
   }
   displayLevel(level);
 }
@@ -99,7 +96,7 @@ function toggleLights(x,y){
 }
 
 function randomizeLights(){
-  for(i = 0; i < 30; i++){
+  for(i = 0; i < 3; i++){
     setTimeout( () => {
       if(gameMode == "Random"){
         toggleLights(Math.floor(Math.random()*boardSize),
@@ -140,7 +137,6 @@ function restartGame(){
   });
   displayMoves("reset");
   toggleMenu("main");
-  // gameOver = true;
 };
 
 function checkWinCondition(){
