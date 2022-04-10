@@ -34,7 +34,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - ✅ make the tiles clickable
 - - ✅ clicked tile must change ~~boolean~~ state
 - - ✅ the adjacent tiles must change state too
-- ❌ if all lights are off, player wins
+- ✅ if all lights are off, player wins
 - - ❌ a message will show announcing it
 - - ❌ next level must be loaded or new random level will be generated
 
@@ -100,3 +100,5 @@ Note: I just restored it to the original text. I must get used to make my code f
 Every time the player clicks on a tile, the "moves" counter will add 1 to it. If the player starts a new game, it goes back to zero. Buttons without function will have a purple color for now.
 
 A message has been aded to warn the player that, if they start a new game, the current progress will be lost.
+
+Win condition has been added for random game mode. The win message is a temporal prompt.
