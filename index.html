@@ -13,9 +13,9 @@
 <body>
 <div class="content">
     <header>
-      <div class="empty"></div>
+      
         <h1>Lights Out!</h1>
-        <p>by <a href="https://github.com/HectorVilas" target="_blank">HectorVilas</a></p>
+        
     </header>
 
     <div class="top">
@@ -42,11 +42,12 @@
         <button class="howToPlay">How to play</button>
         <button class="about">About</button>
       </div>
-      <div class="gameModeOptions hidden">
+
+      <div class="divGameModeOptions hidden">
         <p>Are you sure you want to start a new game?</p>
         <p>Current progress will be lost.</p>
-        <div class="gameModes">
-          <button class="restartGame">Restart game</button>
+        <div class="divGameModes">
+          <button class="sandboxMode">Sandbox mode</button>
           <button class="levelSelect">Level select</button>
           <button class="randomLevel">Random level</button>
         </div>
@@ -54,9 +55,20 @@
           <button class="cancel">Cancel</button>
       </div>
       </div>
+      <div class="divHowToPlay hidden">
+        <p>The objetive of the game is to turn off all the lights,
+          but beware: once you turn on/off a light, the adjacent
+          lights will switch too!</p>
+          <button class="cancel">Return</button>
+      </div>
+      <div class="divAbout hidden">
+        <p>Made by <a href="https://github.com/HectorVilas" target="_blank">HectorVilas</a>. Check my Github profile for more projects.</p>
+        <p>Light switch sound from <a href="https://freesound.org/people/kwahmah_02/sounds/244923/" target="_blank">freesound.org</a>.</p>
+        <button class="cancel">Return</button>
+      </div>
 
       <footer>
-        <p>Light switch sound from <a href="https://freesound.org/people/kwahmah_02/sounds/244923/" target="_blank">freesound.org</a>.</p>
+        
       </footer>
     </div>
 

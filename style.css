@@ -117,7 +117,7 @@ header p {
   transition: 300ms;
 }
 
-.howToPlay, .about, .levelSelect {
+.levelSelect { /*temporal color for unconfigured buttons*/
   background-color: blueviolet;
 }
 
@@ -125,11 +125,11 @@ header p {
   flex-direction: column;
 }
 
-.gameModeOptions{
+.divGameModeOptions{
   flex-direction: column;
 }
 
-.gameModeOptions p {
+.divGameModeOptions p {
   margin: 0;
   text-align: center;
 }
@@ -138,12 +138,22 @@ header p {
   display: none;
 }
 
-footer {
-  margin-top: auto; 
-  padding: 0;
+.divAbout,
+.divHowToPlay {
+  box-shadow: inset 0 0 15px black;
+  flex-direction: column;
+  padding: 15px;
   color: white;
+  justify-content: center;
 }
 
+.mainButtons:hover,
+.divAbout:hover,
+.divHowToPlay:hover,
+.divGameModeOptions:hover {
+  transition: 500ms;
+  box-shadow: inset 0 0 15px yellow;
+}
 
 /*testing*/
 ** {
