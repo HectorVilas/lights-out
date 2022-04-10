@@ -125,15 +125,10 @@ function toggleMenu(show){
   let items = [MenuMainButtons,MenuNewGame,menuHowToPlay,menuAbout];
   let keep;
   
-  if(show == "main"){
-    keep = MenuMainButtons;
-  } else if(show == "modes"){
-    keep = MenuNewGame;
-  } else if(show == "how"){
-    keep = menuHowToPlay;
-  } else if(show == "about"){
-    keep = menuAbout;
-  }
+  show == "main" ? keep = MenuMainButtons :
+  show == "modes" ? keep = MenuNewGame :
+  show == "how" ? keep = menuHowToPlay :
+  show == "about" ? keep = menuAbout : alert("error");
 
   items.forEach(item => item.classList.add("hidden"));
   keep.classList.remove("hidden");
