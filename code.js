@@ -7,8 +7,7 @@ let gameOver = true;
 
 //starting the game
 drawBoard();
-displayMoves("reset");
-displayGameMode("Sandbox");
+newGame("Sandbox", 0);
 
 //adding actions to each tile
 const tiles = document.querySelectorAll(".tile");
@@ -23,24 +22,36 @@ tiles.forEach(tile => {
 //buttons and actions
 const btnRandom = document.querySelector(".randomLevel");
 btnRandom.addEventListener("click", () =>{
-  toggleButtons()
-  randomizeLights();
-  displayGameMode("Random");
+  toggleMenu("main")
+  // randomizeLights();
+  // displayGameMode("Random");
+  newGame("Random", 0);
 });
-
 const btnNewGame = document.querySelector(".newGame");
 btnNewGame.addEventListener("click", () => {
-  toggleButtons();
-  displayGameMode("Sandbox");
+  toggleMenu("modes");
+  // displayGameMode("Sandbox");
+  newGame("Sandbox", 0);
 });
-
-const btnCancel = document.querySelector(".cancel");
-btnCancel.addEventListener("click", () => toggleButtons());
-
-const btnRestart = document.querySelector(".restartGame");
+const btnCancel = document.querySelectorAll(".cancel");
+btnCancel.forEach(btn => btn.addEventListener("click", () => toggleMenu("main")));
+const btnRestart = document.querySelector(".sandboxMode");
 btnRestart.addEventListener("click", () => restartGame());
+const btnHowToPlay = document.querySelector(".howToPlay");
+btnHowToPlay.addEventListener("click", () => toggleMenu("how"));
+const btnAbout = document.querySelector(".about");
+btnAbout.addEventListener("click", () => toggleMenu("about"));
 
 //FUNCTIONS
+
+function newGame(newGameMode,level){
+  displayMoves("reset");
+  displayGameMode(newGameMode);
+  if(newGameMode == "Random"){
+    randomizeLights();
+  }
+  displayLevel(level);
+}
 
 function drawBoard(){
   for(let i = 0; i < boardSize; i++){
@@ -101,11 +112,33 @@ function playSound(){
   soundSwitch.play();
 }
 
-function toggleButtons(){
-  const mainButtons = document.querySelector(".mainButtons");
-  const hiddenNewGame = document.querySelector(".gameModeOptions");
-  mainButtons.classList.toggle("hidden");
-  hiddenNewGame.classList.toggle("hidden");
+function toggleMenu(show){
+  const MenuMainButtons = document.querySelector(".mainButtons");
+  const MenuNewGame = document.querySelector(".divGameModeOptions");
+  const menuHowToPlay = document.querySelector(".divHowToPlay");
+  const menuAbout = document.querySelector(".divAbout");
+
+  if(show == "main"){
+    MenuMainButtons.classList.remove("hidden");
+    [MenuNewGame,menuHowToPlay,menuAbout].forEach(menu =>{
+      menu.classList.add("hidden");
+    });
+  } else if(show == "modes"){
+    MenuNewGame.classList.remove("hidden");
+    [MenuMainButtons,menuHowToPlay,menuAbout].forEach(menu =>{
+      menu.classList.add("hidden");
+    });
+  } else if(show == "how"){
+    menuHowToPlay.classList.remove("hidden");
+    [MenuMainButtons,MenuNewGame,menuAbout].forEach(menu =>{
+      menu.classList.add("hidden");
+    });
+  } else if(show == "about"){
+    menuAbout.classList.remove("hidden");
+    [MenuMainButtons,MenuNewGame,menuHowToPlay].forEach(menu =>{
+      menu.classList.add("hidden");
+    });
+  }
 }
 
 function restartGame(){
@@ -113,7 +146,7 @@ function restartGame(){
     tile.classList.remove("active");
   });
   displayMoves("reset");
-  toggleButtons();
+  toggleMenu("main");
   gameOver = true;
 };
 
@@ -152,6 +185,6 @@ function displayGameMode(newMode){
   mode.innerText = newMode;
 }
 
-// function displayLevel(){
+function displayLevel(){
 
-// }
+}
