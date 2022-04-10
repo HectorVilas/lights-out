@@ -1,7 +1,22 @@
 const board = document.querySelector(".board");
 let moves = 0;
-
+let gameMode = "sandbox";
+let level = 0;
 let boardSize = 10;
+
+//starting the game
+drawBoard();
+displayMoves("reset");
+displayGameMode();
+
+//adding actions to each tile
+const tiles = document.querySelectorAll(".tile");
+tiles.forEach(tile => {
+  tile.addEventListener("click", () => {
+    toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
+    displayMoves();
+  });
+});
 
 //buttons and actions
 const btnRandom = document.querySelector(".randomLevel");
@@ -18,20 +33,6 @@ btnCancel.addEventListener("click", () => toggleButtons());
 
 const btnRestart = document.querySelector(".restartGame");
 btnRestart.addEventListener("click", () => restartGame());
-//////////
-
-drawBoard()
-
-
-
-//adding actions to each tile
-const tiles = document.querySelectorAll(".tile");
-tiles.forEach(tile => {
-  tile.addEventListener("click", () => {
-    toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
-    movesCount();
-  });
-});
 
 //FUNCTIONS
 
@@ -82,7 +83,7 @@ function randomizeLights(){
     setTimeout( () => {
       toggleLights(Math.floor(Math.random()*boardSize),
       Math.floor(Math.random()*boardSize));
-      movesCount("reset");
+      displayMoves("reset");
     }, 75 * (i*(i/20)));
   }
 }
@@ -100,7 +101,17 @@ function toggleButtons(){
   hiddenNewGame.classList.toggle("hidden");
 }
 
-function movesCount(action){
+function restartGame(){
+  tiles.forEach(tile => {
+    tile.classList.remove("active");
+  });
+  displayMoves("reset");
+  toggleButtons()
+};
+
+//display functions
+
+function displayMoves(action){
   const move = document.querySelector(".displayMoves");
   if(action == "reset"){
     moves = 0;
@@ -111,10 +122,11 @@ function movesCount(action){
   }
 }
 
-function restartGame(){
-  tiles.forEach(tile => {
-    tile.classList.remove("active");
-  });
-  movesCount("reset");
-  toggleButtons()
-};
+function displayGameMode(){
+  const mode = document.querySelector(".displayGamemode");
+  mode.innerText = gameMode;
+}
+
+function displayLevel(){
+
+}
