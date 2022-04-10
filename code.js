@@ -1,4 +1,5 @@
 const board = document.querySelector(".board");
+let tiles; //value given by drawBoard();
 let moves = 0;
 let gameMode = "Sandbox";
 let level = 0;
@@ -7,18 +8,10 @@ let gameOver = true;
 
 //starting the game
 drawBoard();
+actionToTiles()
 displayGameMode("Sandbox");
 displayMoves("reset");
 
-//adding actions to each tile
-const tiles = document.querySelectorAll(".tile");
-tiles.forEach(tile => {
-  tile.addEventListener("click", () => {
-    toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
-    displayMoves();
-    checkWinCondition();
-  });
-});
 
 //buttons and actions
 const btnRandom = document.querySelector(".randomMode");
@@ -41,17 +34,20 @@ btnAbout.addEventListener("click", () => toggleMenu("about"));
 
 //FUNCTIONS
 
-function newGame(newGameMode,level, size){
-  clearBoard();
+function newGame(newGameMode,level){
+  removeBoard()
+  drawBoard();
   gameOver = true;
   displayMoves("reset");
   displayGameMode(newGameMode);
   if(newGameMode == "Random"){
     randomizeLights();
     gameOver = false;
-    boardSize = 5;
+    boardSize = 10;
   }
   displayLevel(level);
+  actionToTiles();
+  toggleMenu("main");
 }
 
 function drawBoard(){
@@ -67,7 +63,33 @@ function drawBoard(){
       row.appendChild(tile);
     }
   }
+  tiles = document.querySelectorAll(".tile");
 }
+
+function clearBoard(){
+  tiles.forEach(tile => {
+    tile.classList.remove("active");
+  });
+  displayMoves("reset");
+  toggleMenu("main");
+};
+
+function removeBoard(){
+  while(board.hasChildNodes()){
+    board.removeChild(board.firstChild);
+  }
+}
+
+function actionToTiles(){
+  tiles.forEach(tile => {
+    tile.addEventListener("click", () => {
+      toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
+      displayMoves();
+      checkWinCondition();
+    });
+  });
+}
+
 
 function toggleLights(x,y){
   let tileCenter = document.querySelector(`[x="${x}"][y="${y}"]`);
@@ -131,14 +153,6 @@ function toggleMenu(show){
   items.forEach(item => item.classList.add("hidden"));
   keep.classList.remove("hidden");
 }
-
-function clearBoard(){
-  tiles.forEach(tile => {
-    tile.classList.remove("active");
-  });
-  displayMoves("reset");
-  toggleMenu("main");
-};
 
 function checkWinCondition(){
   if(!gameOver){
