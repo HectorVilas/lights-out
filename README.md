@@ -11,7 +11,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 
 **Start:**
 - ✅ describe the project and write a roadmap
-- ❌ "how to play" button that show/hide the game rules
+- ✅ "how to play" button that show/hide the game rules
 - ✅ shameless link to my Github profile
 - ✅ draw a board in the center of the page
 - - ✅ the tiles must be generated with `JS`
@@ -20,7 +20,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ add animations for on/off state
 - ✅ The next buttons must be present:
 - - ✅ new game
-- - ✅ restart game
+- - ✅ ~~restart game~~ Sandbox Mode
 - - ✅ level select
 - - ✅ random level
 - - ✅ ask for confirmation before reseting the game
@@ -102,3 +102,10 @@ Every time the player clicks on a tile, the "moves" counter will add 1 to it. If
 A message has been aded to warn the player that, if they start a new game, the current progress will be lost.
 
 Win condition has been added for random game mode. The win message is a temporal prompt.
+
+## update 8
+I just added two hidden menu for _How to Play_ and _About_. Those will be shown only when their current buttons are pressed. The screen is a little less cluttered now.
+
+New functions has been added and modified to simplify the way the game modes are changed. The idea from update 6 has been reverted.
+
+The game is playable right now, but only on random mode. The next step would be to create levels, store the design somewhere (on an array, maybe) and let the player go through them one by one, with the objective of turning off all lights first.
