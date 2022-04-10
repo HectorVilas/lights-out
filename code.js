@@ -7,7 +7,8 @@ let gameOver = true;
 
 //starting the game
 drawBoard();
-newGame("Sandbox", 0);
+displayGameMode("Sandbox");
+displayMoves("reset");
 
 //adding actions to each tile
 const tiles = document.querySelectorAll(".tile");
@@ -30,13 +31,12 @@ btnRandom.addEventListener("click", () =>{
 const btnNewGame = document.querySelector(".newGame");
 btnNewGame.addEventListener("click", () => {
   toggleMenu("modes");
-  // displayGameMode("Sandbox");
-  newGame("Sandbox", 0);
+  // newGame("Sandbox", 0);
 });
 const btnCancel = document.querySelectorAll(".cancel");
 btnCancel.forEach(btn => btn.addEventListener("click", () => toggleMenu("main")));
-const btnRestart = document.querySelector(".sandboxMode");
-btnRestart.addEventListener("click", () => restartGame());
+const btnSandbox = document.querySelector(".sandboxMode");
+btnSandbox.addEventListener("click", () => newGame("sandbox", 0)/*restartGame()*/);
 const btnHowToPlay = document.querySelector(".howToPlay");
 btnHowToPlay.addEventListener("click", () => toggleMenu("how"));
 const btnAbout = document.querySelector(".about");
@@ -45,10 +45,13 @@ btnAbout.addEventListener("click", () => toggleMenu("about"));
 //FUNCTIONS
 
 function newGame(newGameMode,level){
+  restartGame();
+  gameOver = false;
   displayMoves("reset");
   displayGameMode(newGameMode);
   if(newGameMode == "Random"){
     randomizeLights();
+    gameOver = true;
   }
   displayLevel(level);
 }
@@ -98,9 +101,10 @@ function toggleLights(x,y){
 function randomizeLights(){
   for(i = 0; i < 30; i++){
     setTimeout( () => {
-      toggleLights(Math.floor(Math.random()*boardSize),
-      Math.floor(Math.random()*boardSize));
-      displayMoves("reset");
+      if(gameMode == "Random"){
+        toggleLights(Math.floor(Math.random()*boardSize),
+        Math.floor(Math.random()*boardSize));
+        displayMoves("reset");}
     }, 75 * (i*(i/20)));
   }
   gameOver = false;
@@ -147,7 +151,7 @@ function restartGame(){
   });
   displayMoves("reset");
   toggleMenu("main");
-  gameOver = true;
+  // gameOver = true;
 };
 
 function checkWinCondition(){
