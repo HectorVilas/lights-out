@@ -33,7 +33,7 @@ btnNewGame.addEventListener("click", () => {
 const btnCancel = document.querySelectorAll(".cancel");
 btnCancel.forEach(btn => btn.addEventListener("click", () => toggleMenu("main")));
 const btnSandbox = document.querySelector(".sandboxMode");
-btnSandbox.addEventListener("click", () => newGame("sandbox", 0));
+btnSandbox.addEventListener("click", () => newGame("Sandbox", 0));
 const btnHowToPlay = document.querySelector(".howToPlay");
 btnHowToPlay.addEventListener("click", () => toggleMenu("how"));
 const btnAbout = document.querySelector(".about");
