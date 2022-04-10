@@ -23,11 +23,11 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ restart game
 - - ✅ level select
 - - ✅ random level
-- - ❌ ask for confirmation before reseting the game
-- ❌ player score
-- - ❌ must update once a tile is clicked
+- - ✅ ask for confirmation before reseting the game
+- ✅ player score
+- - ✅ must update once a tile is clicked
 - - ❌ lower score (less moves) is better
-- ❌ which level is being played
+- ✅ which level is being played
 - ❌ board size must always be 1:1
 
 **Game logic:**
@@ -98,3 +98,5 @@ Note: I just restored it to the original text. I must get used to make my code f
 
 ## update 7
 Every time the player clicks on a tile, the "moves" counter will add 1 to it. If the player starts a new game, it goes back to zero. Buttons without function will have a purple color for now.
+
+A message has been aded to warn the player that, if they start a new game, the current progress will be lost.
