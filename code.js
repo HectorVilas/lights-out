@@ -1,13 +1,14 @@
 const board = document.querySelector(".board");
 let moves = 0;
-let gameMode = "sandbox";
+let gameMode = "Sandbox";
 let level = 0;
 let boardSize = 10;
+let gameOver = true;
 
 //starting the game
 drawBoard();
 displayMoves("reset");
-displayGameMode();
+displayGameMode("Sandbox");
 
 //adding actions to each tile
 const tiles = document.querySelectorAll(".tile");
@@ -15,6 +16,7 @@ tiles.forEach(tile => {
   tile.addEventListener("click", () => {
     toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
     displayMoves();
+    checkWinCondition();
   });
 });
 
@@ -23,10 +25,14 @@ const btnRandom = document.querySelector(".randomLevel");
 btnRandom.addEventListener("click", () =>{
   toggleButtons()
   randomizeLights();
+  displayGameMode("Random");
 });
 
 const btnNewGame = document.querySelector(".newGame");
-btnNewGame.addEventListener("click", () => toggleButtons());
+btnNewGame.addEventListener("click", () => {
+  toggleButtons();
+  displayGameMode("Sandbox");
+});
 
 const btnCancel = document.querySelector(".cancel");
 btnCancel.addEventListener("click", () => toggleButtons());
@@ -86,6 +92,7 @@ function randomizeLights(){
       displayMoves("reset");
     }, 75 * (i*(i/20)));
   }
+  gameOver = false;
 }
 
 function playSound(){
@@ -106,8 +113,25 @@ function restartGame(){
     tile.classList.remove("active");
   });
   displayMoves("reset");
-  toggleButtons()
+  toggleButtons();
+  gameOver = false;
 };
+
+function checkWinCondition(){
+  if(!gameOver){
+    let remaining = 0;
+    tiles.forEach(t => {
+      if(t.classList.contains("active")){
+        remaining++;
+      }
+    });
+    if(remaining == 0){
+      gameOver = true;
+      alert(`You won! with ${moves} moves!
+      temporal win message on prompt, sorry`)
+    }
+  }
+}
 
 //display functions
 
@@ -122,11 +146,12 @@ function displayMoves(action){
   }
 }
 
-function displayGameMode(){
+function displayGameMode(newMode){
   const mode = document.querySelector(".displayGamemode");
-  mode.innerText = gameMode;
+  gameMode = newMode;
+  mode.innerText = newMode;
 }
 
-function displayLevel(){
+// function displayLevel(){
 
-}
+// }
