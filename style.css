@@ -4,6 +4,7 @@ html {
 
 body {
   font-family: aldrich, 'Courier New', Courier, monospace;
+  color: white;
   display: flex;
   justify-content: center;
   background-color: darkslateblue;
@@ -126,6 +127,11 @@ header p {
 
 .gameModeOptions{
   flex-direction: column;
+}
+
+.gameModeOptions p {
+  margin: 0;
+  text-align: center;
 }
 
 .hidden {

@@ -13,7 +13,7 @@
 <body>
 <div class="content">
     <header>
-      <p class="empty"></p>
+      <div class="empty"></div>
         <h1>Lights Out!</h1>
         <p>by <a href="https://github.com/HectorVilas" target="_blank">HectorVilas</a></p>
     </header>
@@ -21,11 +21,11 @@
     <div class="top">
       <div class="moves">
         <p class="displayTitle">Moves</p>
-        <p class="displayMoves">0</p>
+        <p class="displayMoves"></p>
       </div>
       <div class="gameMode">
         <p class="displayTitle">Game mode</p>
-        <p class="displayGamemode">0</p>
+        <p class="displayGamemode"></p>
       </div>
       <div class="level">
         <p class="displayTitle">Level</p>
@@ -43,6 +43,8 @@
         <button class="about">About</button>
       </div>
       <div class="gameModeOptions hidden">
+        <p>Are you sure you want to start a new game?</p>
+        <p>Current progress will be lost.</p>
         <div class="gameModes">
           <button class="restartGame">Restart game</button>
           <button class="levelSelect">Level select</button>
