@@ -96,7 +96,7 @@ function toggleLights(x,y){
 }
 
 function randomizeLights(){
-  for(i = 0; i < 3; i++){
+  for(i = 0; i < 30; i++){
     setTimeout( () => {
       if(gameMode == "Random"){
         toggleLights(Math.floor(Math.random()*boardSize),
