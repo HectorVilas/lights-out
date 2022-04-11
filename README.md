@@ -118,3 +118,10 @@ So yeah, I wrote some code to make levels something possible. Now every level no
 The buttons are placeholders for now. Those are going to be generated with `JS` and their actions will be applied at the same time, like I did with the board generator.
 
 Now the next step is to make those buttons clear the board, redraw the board with the new size and draw the level (already done, but have to make it an action for the buttons). I still don't know if I want to hide all the levels except the beaten and next to play, or just let the player choose and know which ones are beaten.
+
+## update 10
+After some little changes and some extra code, now the level menu will have a button to select any existing level. If the variable containing the levels only have, let's say, 10 levels, then 10 buttons that load it's respective level will be present. Placeholders has been removed.
+
+The next step would be making custom levels. Maybe I'll play a little with some patterns and make a function to store the active lights, so I can just copy and paste the output for a level.
+
+The page still needs a lot of styling. Except for the board, everything else looks too simple.
