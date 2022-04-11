@@ -247,8 +247,17 @@ function drawNormalModeButtons(){
   
   for(let i = 0; i < levelsNormalMode.length; i++){
     const button = document.createElement("button");
-    button.className = `level`;
+    button.className = `normalLevel`;
     button.innerText = `Level ${i+1}`;
+    button.addEventListener("click", () => {
+      newGame("Normal", `${i}`);
+      toggleMenu("main","board")
+    });
     normalModeLevels.appendChild(button)
   };
+
+  // const AllBtnNormalLevels = document.querySelectorAll(".normalLevel");
+  // AllBtnNormalLevels.forEach(btn => {
+  //   btn.
+  // });
 };
