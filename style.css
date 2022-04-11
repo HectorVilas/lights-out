@@ -1,5 +1,5 @@
 html {
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 body {
@@ -8,6 +8,8 @@ body {
   display: flex;
   justify-content: center;
   background-color: darkslateblue;
+  margin: 0;
+  height: 100vh;
 }
 
 div {
@@ -31,10 +33,9 @@ a:hover {
 
 .content {
   flex-direction: column;
-  max-width: 750px;
-  min-width: 550px;
-  height: 98vh;
-  gap: 10px;
+  max-width: 700px;
+  min-width: 350px;
+  /* gap: 10px; */
 }
 
 /* - - - header - - - */
@@ -58,21 +59,24 @@ header p {
   font-size: 15px;
   color: rgb(220, 220, 220);
   text-align: end;
-  padding-top: 20px; /*aligns with the title baseline*/
 }
 
 /* - - - play area - - - */
 
 /* - - - top - - - */
 
+.top {
+  flex: 0 1 auto;
+}
+
 .moves,
 .gameMode,
 .level {
   flex: 1 1 0;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
+  /* margin: 0 10px; */
 }
 
 .displayTitle {
@@ -87,6 +91,14 @@ header p {
   color: white;
   text-shadow: 0 0 5px black;
   margin: 0px;
+}
+
+/* - - - middle - - - */
+
+.middle {
+  /* flex-direction: row; */
+  /* background-color: red; */
+  align-items: center;
 }
 
 /* - - - board - - - */
@@ -125,11 +137,8 @@ header p {
 
 /* - - - buttons at bottom - - - */
 
-.NormalLevelsSelect { /*temporal color for unconfigured buttons*/
-  background-color: blueviolet;
-}
-
 .bottom {
+  flex: 0 1 auto;
   flex-direction: column;
 }
 
