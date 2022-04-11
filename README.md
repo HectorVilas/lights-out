@@ -109,3 +109,12 @@ I just added two hidden menu for _How to Play_ and _About_. Those will be shown 
 New functions has been added and modified to simplify the way the game modes are changed. The idea from update 6 has been reverted.
 
 The game is playable right now, but only on random mode. The next step would be to create levels, store the design somewhere (on an array, maybe) and let the player go through them one by one, with the objective of turning off all lights first.
+
+## update 9
+The bigger the code, the harder to find that little bug that ruins the entire page. Great Scott, I'm glad I learned how to read error messages! After some issues and considering rewriting half the code, I found the problem. The order of the functions being called was pretty bad, but now it draws the board first, and _then_ draws a level.
+
+So yeah, I wrote some code to make levels something possible. Now every level not only have some custom lights on, but also will have their custom board size! This is where the problem started, I didn't planned ahead the new board size, and some things got mixed in the code, but now everything is working just fine and my brain is swimming in dopamine.
+
+The buttons are placeholders for now. Those are going to be generated with `JS` and their actions will be applied at the same time, like I did with the board generator.
+
+Now the next step is to make those buttons clear the board, redraw the board with the new size and draw the level (already done, but have to make it an action for the buttons). I still don't know if I want to hide all the levels except the beaten and next to play, or just let the player choose and know which ones are beaten.
