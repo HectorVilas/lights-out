@@ -20,13 +20,16 @@ btnNewGame.addEventListener("click", () => {
 });
 const btnRandom = document.querySelector(".randomMode");
 btnRandom.addEventListener("click", () =>{
-  toggleMenu("main")
+  toggleMenu("main", "board");
   newGame("Random");
 });
 const btnCancel = document.querySelectorAll(".cancel");
 btnCancel.forEach(btn => btn.addEventListener("click", () => toggleMenu("main", "board")));
 const btnSandbox = document.querySelector(".sandboxMode");
-btnSandbox.addEventListener("click", () => newGame("Sandbox"));
+btnSandbox.addEventListener("click", () => {
+  toggleMenu("main", "board");
+  newGame("Sandbox");
+});
 const btnHowToPlay = document.querySelector(".howToPlay");
 btnHowToPlay.addEventListener("click", () => toggleMenu("how"));
 const btnAbout = document.querySelector(".about");
@@ -39,7 +42,7 @@ btnNormalLevels.addEventListener("click", () => {
 //FUNCTIONS
 
 function newGame(newGameMode,level){
-  removeBoard()
+  removeBoard();
   if(level !== undefined){
     boardSize = levelsNormalMode[level].gridSize;
     gameOver = false;
@@ -53,10 +56,10 @@ function newGame(newGameMode,level){
   if(newGameMode == "Random"){
     randomizeLights();
     gameOver = false;
-  }
+  };
   actionToTiles();
   toggleMenu("main");
-}
+};
 
 function drawBoard(){
   for(let i = 0; i < boardSize; i++){
@@ -69,11 +72,11 @@ function drawBoard(){
       tile.setAttribute("x",`${j}`);
       tile.setAttribute("y",`${i}`);
       row.appendChild(tile);
-    }
-  }
+    };
+  };
   //reasigning value to prevent error
   tiles = document.querySelectorAll(".tile");
-}
+};
 
 function clearBoard(){
   tiles.forEach(tile => {
@@ -86,8 +89,8 @@ function clearBoard(){
 function removeBoard(){
   while(board.hasChildNodes()){
     board.removeChild(board.firstChild);
-  }
-}
+  };
+};
 
 function actionToTiles(){
   tiles.forEach(tile => {
@@ -97,7 +100,7 @@ function actionToTiles(){
       checkWinCondition();
     });
   });
-}
+};
 
 
 function toggleLights(x,y){
@@ -113,19 +116,19 @@ function toggleLights(x,y){
   let tileE = undefined;
   if(parseInt(x)+1 >= 0 && parseInt(x)+1 <= boardSize-1){
     tileE = document.querySelector(`[x="${parseInt(x)+1}"][y="${y}"]`);
-  }
+  };
   let tileW = undefined;
   if(x-1 >= 0 && x-1 <= boardSize-1){
     tileW = document.querySelector(`[x="${x-1}"][y="${y}"]`);
-  }
+  };
 
   [tileCenter, tileN, tileS, tileE, tileW].forEach(t => {
     if(t !== undefined){
       t.classList.toggle("active");
-    }
+    };
   });
-  playSound()
-}
+  playSound();
+};
 
 function randomizeLights(){
   for(i = 0; i < 30; i++){
@@ -173,8 +176,8 @@ function toggleMenu(menu, screen){
 
     screens.forEach(item => item.classList.add("hidden"));
     screenKeep.classList.remove("hidden");
-  }
-}
+  };
+};
 
 function checkWinCondition(){
   if(!gameOver){
@@ -182,15 +185,15 @@ function checkWinCondition(){
     tiles.forEach(t => {
       if(t.classList.contains("active")){
         remaining++;
-      }
+      };
     });
     if(remaining == 0){
       gameOver = true;
       alert(`You won! with ${moves} moves!
       temporal win message on prompt, sorry`)
-    }
-  }
-}
+    };
+  };
+};
 
 //display functions
 
@@ -202,26 +205,26 @@ function displayMoves(action){
   } else {
     moves++;
     move.innerText = moves;
-  }
-}
+  };
+};
 
 function displayGameMode(newMode){
   const mode = document.querySelector(".displayGamemode");
   gameMode = newMode;
   mode.innerText = newMode;
-}
+};
 
 function displayLevel(){
   const levelDisplay = document.querySelector(".displayLevel");
   levelDisplay.innerText = level;
-}
+};
 
 ///////////////////// test area /////////////////////
 
 const levelsNormalMode = [
   {gridSize: 7, design: [[3,2],[2,3],[3,3],[4,3],[3,4]]},
   {gridSize: 10, design: [[3,6],[5,2],[8,1],[8,6],[9,2],[5,5],[3,3],[4,4],[6,8],[3,1]]},
-]
+];
 
 function drawLevel(l){
   if(l !== undefined){
@@ -232,6 +235,6 @@ function drawLevel(l){
     level = l+1;
   } else {
     level = 0;
-  }
+  };
   displayLevel(l);
-}
+};
