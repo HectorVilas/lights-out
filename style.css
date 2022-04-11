@@ -117,7 +117,15 @@ header p {
   transition: 300ms;
 }
 
-.levelSelect { /*temporal color for unconfigured buttons*/
+/* - - - Level selection - - - */
+
+.normalModeLevels {
+  flex-flow: row wrap;
+}
+
+/* - - - buttons at bottom - - - */
+
+.NormalLevelsSelect { /*temporal color for unconfigured buttons*/
   background-color: blueviolet;
 }
 
@@ -147,7 +155,7 @@ header p {
   justify-content: center;
 }
 
-.mainButtons:hover,
+.divMainButtons:hover,
 .divAbout:hover,
 .divHowToPlay:hover,
 .divGameModeOptions:hover {

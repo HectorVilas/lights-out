@@ -1,5 +1,5 @@
 const board = document.querySelector(".board");
-let tiles; //value given by drawBoard();
+let tiles = document.querySelectorAll(".tile");
 let moves = 0;
 let gameMode = "Sandbox";
 let level = 0;
@@ -14,38 +14,46 @@ displayMoves("reset");
 
 
 //buttons and actions
-const btnRandom = document.querySelector(".randomMode");
-btnRandom.addEventListener("click", () =>{
-  toggleMenu("main")
-  newGame("Random", 0);
-});
 const btnNewGame = document.querySelector(".newGame");
 btnNewGame.addEventListener("click", () => {
   toggleMenu("modes");
 });
+const btnRandom = document.querySelector(".randomMode");
+btnRandom.addEventListener("click", () =>{
+  toggleMenu("main")
+  newGame("Random");
+});
 const btnCancel = document.querySelectorAll(".cancel");
-btnCancel.forEach(btn => btn.addEventListener("click", () => toggleMenu("main")));
+btnCancel.forEach(btn => btn.addEventListener("click", () => toggleMenu("main", "board")));
 const btnSandbox = document.querySelector(".sandboxMode");
-btnSandbox.addEventListener("click", () => newGame("Sandbox", 0));
+btnSandbox.addEventListener("click", () => newGame("Sandbox"));
 const btnHowToPlay = document.querySelector(".howToPlay");
 btnHowToPlay.addEventListener("click", () => toggleMenu("how"));
 const btnAbout = document.querySelector(".about");
 btnAbout.addEventListener("click", () => toggleMenu("about"));
+const btnNormalLevels = document.querySelector(".NormalLevelsSelect");
+btnNormalLevels.addEventListener("click", () => {
+  toggleMenu("modes", "normal");
+});
 
 //FUNCTIONS
 
 function newGame(newGameMode,level){
   removeBoard()
+  if(level !== undefined){
+    boardSize = levelsNormalMode[level].gridSize;
+    gameOver = false;
+  } else {
+    boardSize = 10;
+  };
   drawBoard();
-  gameOver = true;
+  drawLevel(level);
   displayMoves("reset");
   displayGameMode(newGameMode);
   if(newGameMode == "Random"){
     randomizeLights();
     gameOver = false;
-    boardSize = 10;
   }
-  displayLevel(level);
   actionToTiles();
   toggleMenu("main");
 }
@@ -63,6 +71,7 @@ function drawBoard(){
       row.appendChild(tile);
     }
   }
+  //reasigning value to prevent error
   tiles = document.querySelectorAll(".tile");
 }
 
@@ -136,22 +145,35 @@ function playSound(){
   soundSwitch.play();
 }
 
-function toggleMenu(show){
-  const MenuMainButtons = document.querySelector(".mainButtons");
+function toggleMenu(menu, screen){
+  const MenuMainButtons = document.querySelector(".divMainButtons");
   const MenuNewGame = document.querySelector(".divGameModeOptions");
   const menuHowToPlay = document.querySelector(".divHowToPlay");
   const menuAbout = document.querySelector(".divAbout");
 
-  let items = [MenuMainButtons,MenuNewGame,menuHowToPlay,menuAbout];
-  let keep;
+  let menus = [MenuMainButtons,MenuNewGame,menuHowToPlay,menuAbout];
+  let menuKeep;
   
-  show == "main" ? keep = MenuMainButtons :
-  show == "modes" ? keep = MenuNewGame :
-  show == "how" ? keep = menuHowToPlay :
-  show == "about" ? keep = menuAbout : alert("error");
+  menu == "main" ? menuKeep = MenuMainButtons :
+  menu == "modes" ? menuKeep = MenuNewGame :
+  menu == "how" ? menuKeep = menuHowToPlay :
+  menu == "about" ? menuKeep = menuAbout : alert("error");
 
-  items.forEach(item => item.classList.add("hidden"));
-  keep.classList.remove("hidden");
+  menus.forEach(item => item.classList.add("hidden"));
+  menuKeep.classList.remove("hidden");
+
+  if(screen !== undefined){
+    const screenLevelsNormal = document.querySelector(".normalModeLevels"); 
+    
+    let screens = [board, screenLevelsNormal];
+    let screenKeep;
+
+    screen == "board" ? screenKeep = board :
+    screen == "normal" ? screenKeep = screenLevelsNormal : alert("error");
+
+    screens.forEach(item => item.classList.add("hidden"));
+    screenKeep.classList.remove("hidden");
+  }
 }
 
 function checkWinCondition(){
@@ -189,21 +211,27 @@ function displayGameMode(newMode){
   mode.innerText = newMode;
 }
 
-function displayLevel(num){
+function displayLevel(){
   const levelDisplay = document.querySelector(".displayLevel");
-  levelDisplay.innerText = num;
+  levelDisplay.innerText = level;
 }
 
 ///////////////////// test area /////////////////////
 
 const levelsNormalMode = [
-    [[2,5],[1,8],[4,6]], //level 0
-    [[3,6],[5,2],[8,1],[8,6],[9,2],[5,5],[3,3],[4,4],[6,8],[3,1]] //level 1
-  ];
+  {gridSize: 7, design: [[3,2],[2,3],[3,3],[4,3],[3,4]]},
+  {gridSize: 10, design: [[3,6],[5,2],[8,1],[8,6],[9,2],[5,5],[3,3],[4,4],[6,8],[3,1]]},
+]
+
 function drawLevel(l){
-  clearBoard()
-  levelsNormalMode[l].forEach(t => {
-    let thisTile = document.querySelector(`[x="${t[0]}"][y="${t[1]}"]`);
-    thisTile.classList.toggle("active");
-  });
+  if(l !== undefined){
+    levelsNormalMode[l].design.forEach(t => {
+      let thisTile = document.querySelector(`[x="${t[0]}"][y="${t[1]}"]`);
+      thisTile.classList.add("active");
+    });
+    level = l+1;
+  } else {
+    level = 0;
+  }
+  displayLevel(l);
 }
