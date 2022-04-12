@@ -13,7 +13,6 @@ const levelsNormalMode = [
 
 //starting the game
 drawBoard();
-actionToTiles()
 displayGameMode("Sandbox");
 displayMoves("reset");
 drawNormalModeButtons();
@@ -56,7 +55,6 @@ function newGame(newGameMode,level){
     boardSize = 10;
   };
   drawBoard();
-  actionToTiles();
   drawLevel(level);
   displayMoves("reset");
   displayGameMode(newGameMode);
@@ -79,11 +77,15 @@ function drawBoard(){
       tile.className = `tile`;
       tile.setAttribute("x",`${j}`);
       tile.setAttribute("y",`${i}`);
+      tile.addEventListener("click", () => {
+        toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
+        displayMoves();
+        checkWinCondition();
+      });
       row.appendChild(tile);
     };
   };
-  //reasigning value to prevent error
-  tiles = document.querySelectorAll(".tile");
+  tiles = document.querySelectorAll(".tile"); //reasigning value to prevent error
 };
 
 function clearBoard(){
@@ -98,16 +100,6 @@ function removeBoard(){
   while(board.hasChildNodes()){
     board.removeChild(board.firstChild);
   };
-};
-
-function actionToTiles(){
-  tiles.forEach(tile => {
-    tile.addEventListener("click", () => {
-      toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
-      displayMoves();
-      checkWinCondition();
-    });
-  });
 };
 
 function toggleLights(x,y){
@@ -142,11 +134,12 @@ function randomizeLights(){
       if(gameMode == "Random"){
         toggleLights(Math.floor(Math.random()*boardSize),
         Math.floor(Math.random()*boardSize));
-        displayMoves("reset");}
+        displayMoves("reset");
+      };
     }, 75 * (i*(i/20)));
-  }
+  };
   gameOver = false;
-}
+};
 
 function playSound(){
   const soundSwitch = document.querySelector("#switchSound");
@@ -253,11 +246,6 @@ function drawNormalModeButtons(){
       newGame("Normal", `${i}`);
       toggleMenu("main","board")
     });
-    normalModeLevels.appendChild(button)
+    normalModeLevels.appendChild(button);
   };
-
-  // const AllBtnNormalLevels = document.querySelectorAll(".normalLevel");
-  // AllBtnNormalLevels.forEach(btn => {
-  //   btn.
-  // });
 };
