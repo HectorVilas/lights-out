@@ -48,21 +48,16 @@ btnNormalLevels.addEventListener("click", () => {
 
 function newGame(newGameMode,level){
   removeBoard();
-  if(level !== undefined){
-    boardSize = levelsNormalMode[level].gridSize;
-    gameOver = false;
-  } else {
-    boardSize = 10;
-  };
+  level !== undefined ? boardSize = levelsNormalMode[level].gridSize
+  : boardSize = 10;
+  gameMode = newGameMode;
+  gameMode == "Sandbox" ? gameOver = true : gameOver = false;
   drawBoard();
   drawLevel(level);
   displayMoves("reset");
   displayGameMode(newGameMode);
-  if(newGameMode == "Random"){
-    randomizeLights();
-    gameOver = false;
-  };
-  toggleMenu("main");
+  newGameMode == "Random" ? randomizeLights()
+  : toggleMenu("main");
 };
 
 //board related
@@ -77,11 +72,13 @@ function drawBoard(){
       tile.className = `tile`;
       tile.setAttribute("x",`${j}`);
       tile.setAttribute("y",`${i}`);
+
       tile.addEventListener("click", () => {
         toggleLights(tile.getAttribute("x"),tile.getAttribute("y"));
         displayMoves();
         checkWinCondition();
       });
+
       row.appendChild(tile);
     };
   };
@@ -138,7 +135,6 @@ function randomizeLights(){
       };
     }, 75 * (i*(i/20)));
   };
-  gameOver = false;
 };
 
 function playSound(){
@@ -174,10 +170,11 @@ function toggleMenu(menu, screen){
   let menus = [MenuMainButtons,MenuNewGame,menuHowToPlay,menuAbout];
   let menuKeep;
   
-  menu == "main" ? menuKeep = MenuMainButtons :
-  menu == "modes" ? menuKeep = MenuNewGame :
-  menu == "how" ? menuKeep = menuHowToPlay :
-  menu == "about" ? menuKeep = menuAbout : alert("error");
+  menu == "main" ? menuKeep = MenuMainButtons
+  : menu == "modes" ? menuKeep = MenuNewGame
+  : menu == "how" ? menuKeep = menuHowToPlay
+  : menu == "about" ? menuKeep = menuAbout
+  : alert("error");
 
   menus.forEach(item => item.classList.add("hidden"));
   menuKeep.classList.remove("hidden");
@@ -188,8 +185,9 @@ function toggleMenu(menu, screen){
     let screens = [board, screenLevelsNormal];
     let screenKeep;
 
-    screen == "board" ? screenKeep = board :
-    screen == "normal" ? screenKeep = screenLevelsNormal : alert("error");
+    screen == "board" ? screenKeep = board
+    : screen == "normal" ? screenKeep = screenLevelsNormal
+    : alert("error");
 
     screens.forEach(item => item.classList.add("hidden"));
     screenKeep.classList.remove("hidden");
@@ -211,7 +209,6 @@ function displayMoves(action){
 
 function displayGameMode(newMode){
   const mode = document.querySelector(".displayGamemode");
-  gameMode = newMode;
   mode.innerText = newMode;
 };
 
@@ -242,10 +239,12 @@ function drawNormalModeButtons(){
     const button = document.createElement("button");
     button.className = `normalLevel`;
     button.innerText = `Level ${i+1}`;
+
     button.addEventListener("click", () => {
       newGame("Normal", `${i}`);
       toggleMenu("main","board")
     });
+
     normalModeLevels.appendChild(button);
   };
 };
