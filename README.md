@@ -147,3 +147,6 @@ function lightsToArray(){
 - now I just copy the console output and paste it inside the variable containing all the levels.
 
 Now I only need to draw something playing normally, try to make some challenging designs and run this function to store the design as a level.
+
+## update 12
+I've been using that "tool" I made to turn designs while playing on levels. Now there's 15 playable levels. The more advanced, the bigger the grid.
