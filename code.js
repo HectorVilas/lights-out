@@ -243,7 +243,7 @@ function drawNormalModeButtons(){
     button.innerText = `Level ${i+1}`;
 
     button.addEventListener("click", () => {
-      newGame("Normal", `${i}`);
+      newGame("Normal", i);
       toggleMenu("main","board")
     });
 
