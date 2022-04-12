@@ -8,6 +8,8 @@ let gameOver = true;
 
 const levelsNormalMode = [
   {gridSize: 5, design: [[2,1],[1,2],[2,2],[3,2],[2,3]]},
+  {gridSize: 5, design: [[2,0],[0,2],[2,2],[4,2],[2,4]]},
+  {gridSize: 5, design: [[0,0],[1,0],[2,0],[3,0],[4,0],[0,1],[2,1],[4,1],[0,2],[1,2],[3,2],[4,2],[0,3],[2,3],[4,3],[0,4],[1,4],[2,4],[3,4],[4,4]]},
   {gridSize: 10, design: [[3,6],[5,2],[8,1],[8,6],[9,2],[5,5],[3,3],[4,4],[6,8],[3,1]]},
 ];
 
@@ -247,4 +249,16 @@ function drawNormalModeButtons(){
 
     normalModeLevels.appendChild(button);
   };
+};
+
+//tools for "game dev"
+
+function lightsToArray(){
+  let activeLights = []
+  tiles.forEach(t => {
+    if(t.classList.contains("active")){
+      activeLights.push([parseInt(t.getAttribute("x")),parseInt(t.getAttribute("y"))]);
+    };
+  });
+  console.log("["+activeLights.join("],[")+"]")
 };
