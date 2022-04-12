@@ -254,11 +254,11 @@ function drawNormalModeButtons(){
 //tools for "game dev"
 
 function lightsToArray(){
-  let activeLights = []
+  let activeLights = [];
   tiles.forEach(t => {
     if(t.classList.contains("active")){
       activeLights.push([parseInt(t.getAttribute("x")),parseInt(t.getAttribute("y"))]);
     };
   });
-  console.log("["+activeLights.join("],[")+"]")
+  console.log("["+activeLights.join("],[")+"]");
 };
