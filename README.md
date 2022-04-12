@@ -125,3 +125,25 @@ After some little changes and some extra code, now the level menu will have a bu
 The next step would be making custom levels. Maybe I'll play a little with some patterns and make a function to store the active lights, so I can just copy and paste the output for a level.
 
 The page still needs a lot of styling. Except for the board, everything else looks too simple.
+
+## update 11
+I just made a helping function for level designs! I just run the function in the navigator console and it will generate a ready-to-copy array with all the active lights.
+
+```javascript
+function lightsToArray(){
+  let activeLights = [];
+  tiles.forEach(t => {
+    if(t.classList.contains("active")){
+      activeLights.push([parseInt(t.getAttribute("x")),parseInt(t.getAttribute("y"))]);
+    };
+  });
+  console.log("["+activeLights.join("],[")+"]");
+};
+```
+
+### how it works?
+- first, it checks every single tile and store it's coordinates `X` and `Y` as an array inside another array.
+- Once it finish checking all the tiles, it shows the array in the console, but converted to an array, adding the square brackets and commas in their respective places.
+- now I just copy the console output and paste it inside the variable containing all the levels.
+
+Now I only need to draw something playing normally, try to make some challenging designs and run this function to store the design as a level.
