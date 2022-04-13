@@ -39,7 +39,7 @@ drawNormalModeButtons();
 
 const btnNewGame = document.querySelector(".newGame");
 btnNewGame.addEventListener("click", () => {
-  toggleMenu("modes");
+  toggleMenu("modes", "levels");
 });
 const btnRandom = document.querySelector(".randomMode");
 btnRandom.addEventListener("click", () =>{
@@ -57,10 +57,6 @@ const btnHowToPlay = document.querySelector(".howToPlay");
 btnHowToPlay.addEventListener("click", () => toggleMenu("how"));
 const btnAbout = document.querySelector(".about");
 btnAbout.addEventListener("click", () => toggleMenu("about"));
-const btnNormalLevels = document.querySelector(".NormalLevelsSelect");
-btnNormalLevels.addEventListener("click", () => {
-  toggleMenu("modes", "normal");
-});
 
 //FUNCTIONS
 
@@ -181,7 +177,7 @@ function checkWinCondition(){
 
 function toggleMenu(menu, screen){
   const MenuMainButtons = document.querySelector(".divMainButtons");
-  const MenuNewGame = document.querySelector(".divGameModeOptions");
+  const MenuNewGame = document.querySelector(".GameModes");
   const menuHowToPlay = document.querySelector(".divHowToPlay");
   const menuAbout = document.querySelector(".divAbout");
 
@@ -198,13 +194,13 @@ function toggleMenu(menu, screen){
   menuKeep.classList.remove("hidden");
 
   if(screen !== undefined){
-    const screenLevelsNormal = document.querySelector(".normalModeLevels"); 
+    const screenLevelsNormal = document.querySelector(".GameModes"); 
     
     let screens = [board, screenLevelsNormal];
     let screenKeep;
 
     screen == "board" ? screenKeep = board
-    : screen == "normal" ? screenKeep = screenLevelsNormal
+    : screen == "levels" ? screenKeep = screenLevelsNormal
     : alert("error");
 
     screens.forEach(item => item.classList.add("hidden"));
@@ -251,7 +247,7 @@ function drawLevel(l){
 };
 
 function drawNormalModeButtons(){
-  const normalModeLevels = document.querySelector(".normalModeLevels");
+  const normalModeLevels = document.querySelector(".NormalLevelsList");
   
   for(let i = 0; i < levelsNormalMode.length; i++){
     const button = document.createElement("button");
@@ -259,8 +255,8 @@ function drawNormalModeButtons(){
     button.innerText = `Level ${i+1}`;
 
     button.addEventListener("click", () => {
-      newGame("Normal", i);
-      toggleMenu("main","board")
+      newGame("levels", i);
+      toggleMenu("main","board");
     });
 
     normalModeLevels.appendChild(button);
