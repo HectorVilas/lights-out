@@ -159,3 +159,5 @@ I've been moving divs around to adapt the page to something a little more intuit
 Now if a level is beaten, it's button will be darker. You can still replay the beaten level. I don't know anything about cookies and other stuffs to save the progress in the navigator, so if you refresh or close the page, the progress will be lost. Anyways, you don't need to beat the previous level to play the next one.
 
 This project is still fun to develop, but I don't know what to add/adjust next. The levels are a little bland with those random designs, maybe I'll start making some pixel art, but I'm not sure if those will be beatable.
+
+Note: 24 levels with random patterns has been drawn, now I want to make some pixel art, so the next levels will be that. I hope I find something good to make.

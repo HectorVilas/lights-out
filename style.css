@@ -146,7 +146,7 @@ header p {
   padding: 0 5px;
 }
 
-.NormalLevelsList {
+.normalLevelsList {
   flex: 10 1 auto;
   flex-flow: row wrap;
 }
