@@ -141,7 +141,7 @@ function toggleLights(x,y){
       t.classList.toggle("active");
     };
   });
-  playSound();
+  playSound("switch");
 };
 
 function randomizeLights(){
@@ -156,11 +156,17 @@ function randomizeLights(){
   };
 };
 
-function playSound(){
+function playSound(sound){
   const soundSwitch = document.querySelector("#switchSound");
-  soundSwitch.currentTime = 0;
-  soundSwitch.play();
-}
+  const soundFanfare = document.querySelector("#fanfareSound");
+  if(sound == "switch"){
+    soundSwitch.currentTime = 0;
+    soundSwitch.play();
+  } else if(sound == "fanfare"){
+    soundFanfare.currentTime = 0;
+    soundFanfare.play();
+  };
+};
 
 function checkWinCondition(){
   if(!gameOver){
@@ -176,6 +182,7 @@ function checkWinCondition(){
       console.log(btnCurrentLevel);
       gameOver = true;
       toggleMenu("main","win");
+      playSound("fanfare");
     };
   };
 };
