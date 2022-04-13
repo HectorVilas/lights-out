@@ -26,9 +26,9 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ ask for confirmation before reseting the game
 - ✅ player score
 - - ✅ must update once a tile is clicked
-- - ❌ lower score (less moves) is better
+- - ~~lower score (less moves) is better~~
 - ✅ which level is being played
-- ❌ board size must always be 1:1
+- ✅ board size must always be 1:1
 
 **Game logic:**
 - ✅ make the tiles clickable
@@ -42,14 +42,14 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - ✅ random level
 - - ✅ random tiles will be toggled _X_ number of times
 - - ✅ adjacent tiles will change state too, to not soft lock the game
-- ❌ premade levels
+- ✅ premade levels
 - - ❌ ~50 levels will be playable as a challenge
 - - ❌ once a level is won, the next will be playable
 
 **Other ideas, not promised:**
 - ❌ draw rooms behind the tiles
 - - ❌ randomize the walls and furniture
-- ❌ different grid sizes
+- ✅ different grid sizes
 - ❌ undo button
 - ❌ electrical panel for challenges
 - - ❌ the thermomagnetic switch has X amps
