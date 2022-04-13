@@ -166,9 +166,11 @@ function checkWinCondition(){
       };
     });
     if(remaining == 0){
+      const btnCurrentLevel = document.querySelector(`.n${level}`);
+      btnCurrentLevel.classList.add("darkened");
+      console.log(btnCurrentLevel);
       gameOver = true;
-      alert(`You won! with ${moves} moves!
-      temporal win message on prompt, sorry`)
+      toggleMenu("main","win");
     };
   };
 };
@@ -195,12 +197,14 @@ function toggleMenu(menu, screen){
 
   if(screen !== undefined){
     const screenLevelsNormal = document.querySelector(".GameModes"); 
+    const screenWinMessage = document.querySelector(".winMessage"); 
     
-    let screens = [board, screenLevelsNormal];
+    let screens = [board,screenLevelsNormal,screenWinMessage];
     let screenKeep;
 
     screen == "board" ? screenKeep = board
     : screen == "levels" ? screenKeep = screenLevelsNormal
+    : screen == "win" ? screenKeep = screenWinMessage
     : alert("error");
 
     screens.forEach(item => item.classList.add("hidden"));
@@ -251,7 +255,7 @@ function drawNormalModeButtons(){
   
   for(let i = 0; i < levelsNormalMode.length; i++){
     const button = document.createElement("button");
-    button.className = `normalLevel`;
+    button.className = `normalLevel n${i+1}`;
     button.innerText = `Level ${i+1}`;
 
     button.addEventListener("click", () => {

@@ -21,33 +21,32 @@
     <div class="top">
       <div class="moves">
         <p class="displayTitle">Moves: <span class="displayMoves"></span></p>
-        
       </div>
       <div class="gameMode">
         <p class="displayTitle">Game mode: <span class="displayGamemode"></span></p>
-        
       </div>
       <div class="level">
         <p class="displayTitle">Level: <span class="displayLevel">0</span></p>
-      
       </div>
     </div>
+
     <div class="middle">
       <div class="board">
       </div>
 
       <div class="GameModes hidden">
-        <!-- <div class="newGameWarning">
-          <p>Are you sure you want to start a new game?</p>
-          <p>Current progress will be lost.</p>
-        </div> -->
-        
-        <p>Normal mode:</p>
+        <h1>Normal mode:</h1>
         <div class="NormalLevelsList">
-          
+        </div>
+        <h1>Future game mode:</h1>
+        <div class="placeholder">
+          <p style="color:gray">This is just</p>
+          <p style="color:gray">a placeholder</p>
+          <p style="color:gray">for other</p>
+            <p style="color:gray">game modes</p>
         </div>
         <div class="divOtherGameModes">
-          <p>Other game modes:</p>
+          <h1>Other game modes:</h1>
           <div class="otherGameModes ">
             <button class="randomMode">Random mode</button>
             <button class="sandboxMode">Sandbox mode</button>
@@ -57,6 +56,10 @@
           </div>
         </div>
       </div>
+
+      <div class="winMessage hidden">
+        <h1>You win!</h1>
+      </div>
     </div>
 
     <div class="bottom">
@@ -64,12 +67,6 @@
         <button class="newGame">New game</button>
         <button class="howToPlay">How to play</button>
         <button class="about">About</button>
-      </div>
-      <div class="divGameModeOptions hidden">
-        
-        <div>
-          <button class="cancel">Cancel</button>
-      </div>
       </div>
       <div class="divHowToPlay hidden">
         <p>The objective of the game is to turn off all the lights,

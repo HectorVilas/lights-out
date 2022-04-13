@@ -20,6 +20,14 @@ div {
 button {
   flex: 1 1 0;
   margin: 10px;
+  border: 3px double gray;
+  border-radius: 10px;
+  box-shadow: inset -2px -2px 10px gray;
+}
+.darkened { /*for won levels*/
+  background-color: rgb(150, 150, 150);
+  border: none;
+  box-shadow: inset 2px 2px 10px black;
 }
 
 a {
@@ -105,7 +113,7 @@ header p {
   flex: 1 1 auto;
   border: 1px solid gray;
   aspect-ratio: 1 / 1;
-  max-width: 700px; /*prevents overflow*/
+  max-width: 630px; /*prevents overflow*/
   margin: 10px;
 }
 
@@ -135,7 +143,6 @@ header p {
   flex: 1 1 auto;
   flex-direction: column;
   height: 100%;
-  /* gap: 50px; */
   padding: 0 5px;
 }
 
@@ -145,7 +152,6 @@ header p {
 }
 
 .divOtherGameModes {
-  /* height: 10px; */
   flex-direction: column;
 }
 
@@ -156,20 +162,25 @@ header p {
   margin: 5px;
 }
 
+.placeholder {
+  flex-direction: column;
+  align-items: center;
+}
+
+/* - - - win message - - - */
+
+.winMessage{
+  font-size: 50px;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px 10px rgb(33, 25, 60);
+}
+
 /* - - - buttons at bottom - - - */
 
 .bottom {
   flex: 0 1 auto;
   flex-direction: column;
-}
-
-.divGameModeOptions{
-  flex-direction: column;
-}
-
-.divGameModeOptions p {
-  margin: 0;
-  text-align: center;
 }
 
 .hidden {
@@ -181,17 +192,8 @@ header p {
   box-shadow: inset 0 0 15px black;
   flex-direction: column;
   padding: 15px;
-  color: white;
   justify-content: center;
 }
-
-/* .divMainButtons:hover,
-.divAbout:hover,
-.divHowToPlay:hover,
-.divGameModeOptions:hover {
-  transition: 500ms;
-  box-shadow: inset 0 0 15px yellow;
-} */
 
 /*testing*/
 ** {

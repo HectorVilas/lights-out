@@ -15,7 +15,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - ✅ shameless link to my Github profile
 - ✅ draw a board in the center of the page
 - - ✅ the tiles must be generated with `JS`
-- - ✅ every tile in the board must have an unique ID
+- - ✅ every tile in the board must have ~~an~~ unique ~~ID~~ attributes
 - ✅ add initial style with `CSS`
 - - ✅ add animations for on/off state
 - ✅ The next buttons must be present:
@@ -23,10 +23,10 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ ~~restart game~~ Sandbox Mode
 - - ✅ level select
 - - ✅ random level
-- - ✅ ask for confirmation before reseting the game
+- - ~~ask for confirmation before reseting the game~~
 - ✅ player score
 - - ✅ must update once a tile is clicked
-- - ~~lower score (less moves) is better~~
+- - ~~ lower score (less moves) is better~~
 - ✅ which level is being played
 - ✅ board size must always be 1:1
 
@@ -36,7 +36,8 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ the adjacent tiles must change state too
 - ✅ if all lights are off, player wins
 - - ❌ a message will show announcing it
-- - ❌ next level must be loaded or new random level will be generated
+- - ❌ ~~next level must be loaded or new random level will be generated~~
+- - ✅ beaten level darkened in the list
 
 **Game modes:**
 - ✅ random level
@@ -44,7 +45,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ adjacent tiles will change state too, to not soft lock the game
 - ✅ premade levels
 - - ❌ ~50 levels will be playable as a challenge
-- - ❌ once a level is won, the next will be playable
+- - ~~once a level is won, the next will be playable~~
 
 **Other ideas, not promised:**
 - ❌ draw rooms behind the tiles
@@ -150,3 +151,11 @@ Now I only need to draw something playing normally, try to make some challenging
 
 ## update 12
 I've been using that "tool" I made to turn designs while playing on levels. Now there's 15 playable levels. The more advanced, the bigger the grid.
+
+## update 13
+
+I've been moving divs around to adapt the page to something a little more intuitive and screwed something in the code. Now I know why I need to use proper names for everything. The problem has been fixed, by the way.
+
+Now if a level is beaten, it's button will be darker. You can still replay the beaten level. I don't know anything about cookies and other stuffs to save the progress in the navigator, so if you refresh or close the page, the progress will be lost. Anyways, you don't need to beat the previous level to play the next one.
+
+This project is still fun to develop, but I don't know what to add/adjust next. The levels are a little bland with those random designs, maybe I'll start making some pixel art, but I'm not sure if those will be beatable.
