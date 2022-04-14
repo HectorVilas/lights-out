@@ -35,7 +35,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ clicked tile must change ~~boolean~~ state
 - - ✅ the adjacent tiles must change state too
 - ✅ if all lights are off, player wins
-- - ❌ a message will show announcing it
+- - ✅ a message will show announcing it
 - - ❌ ~~next level must be loaded or new random level will be generated~~
 - - ✅ beaten level darkened in the list
 
@@ -44,7 +44,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ random tiles will be toggled _X_ number of times
 - - ✅ adjacent tiles will change state too, to not soft lock the game
 - ✅ premade levels
-- - ❌ ~50 levels will be playable as a challenge
+- - ✅ ~50 levels will be playable as a challenge
 - - ~~once a level is won, the next will be playable~~
 
 **Other ideas, not promised:**
@@ -166,3 +166,18 @@ I also added a fanfare sound to play with the win message. Credits to the creato
 
 ## update 14
 I just added 6 pixel art levels. Pretty iconic characters from Nintendo games drawn with just lights on or off. Now I just need to add... 18 more? Okay, anything for the project!
+
+note: and all the pixel art I wanted is now present. I drawed all of them one pixel at a time with another "dev tool" I made to make the tiles just paint one. I made them looking at some Gameboy and NES sprites, but those have at least 3 different colors, so it was pretty hard to do with just two colors.
+
+I'm not sure if those pixel art levels are beatable, just enjoy them, don't beat yourself if you cant beat them.
+
+***
+
+# final thoughts
+This project was a lot of fun, I learned a lot, and if I had to do the same project again, now I know about some things that would do much better, like the arrays storing the levels. A simple 1D array would be enough, but I decided to store the X and Y coordinates of each lit light. This made the variable like 3 or 4 times bigger.
+
+I also learned that I need to name things better, and maybe I need to be more specific with the `querySelector`. Adding more features to a project is fun, but planning those ahead would be much better, another thing to have in mind.
+
+So this is the final version of this project. It's playable right now, has been tested and may come back in the future to make some changes or add new features.
+
+See you in the next project!
