@@ -1,7 +1,3 @@
-html {
-  /* height: 100vh; */
-}
-
 body {
   font-family: aldrich, 'Courier New', Courier, monospace;
   color: white;
@@ -145,13 +141,17 @@ header p {
   height: 100%;
   padding: 0 5px;
 }
-
+/**/
 .normalLevelsList {
-  flex: 10 1 auto;
+  flex-flow: row wrap;
+}
+
+.pixelArtLevelsList {
   flex-flow: row wrap;
 }
 
 .divOtherGameModes {
+  /* flex: 0.1 1 auto; */
   flex-direction: column;
 }
 

@@ -163,3 +163,6 @@ This project is still fun to develop, but I don't know what to add/adjust next. 
 Note: 24 levels with random patterns has been drawn, now I want to make some pixel art, so the next levels will be that. I hope I find something good to make.
 
 I also added a fanfare sound to play with the win message. Credits to the creator in "About".
+
+## update 14
+I just added 6 pixel art levels. Pretty iconic characters from Nintendo games drawn with just lights on or off. Now I just need to add... 18 more? Okay, anything for the project!
