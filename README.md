@@ -26,7 +26,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ~~ask for confirmation before reseting the game~~
 - ✅ player score
 - - ✅ must update once a tile is clicked
-- - ~~ lower score (less moves) is better~~
+- - ~~lower score (less moves) is better~~
 - ✅ which level is being played
 - ✅ board size must always be 1:1
 
@@ -36,7 +36,7 @@ Here's all I want to do with this simple project. I'll be adding more once I com
 - - ✅ the adjacent tiles must change state too
 - ✅ if all lights are off, player wins
 - - ✅ a message will show announcing it
-- - ❌ ~~next level must be loaded or new random level will be generated~~
+- - ~~next level must be loaded or new random level will be generated~~
 - - ✅ beaten level darkened in the list
 
 **Game modes:**
